@@ -32,7 +32,7 @@ char* GetNth(LIST* head, int index)
 
 int main(void) {
 	FILE* fp;
-	char line[128];
+	char line[1024];
 	LIST* current, * head;
 	int rngQuestion = rand() % 10;
 	head = current = NULL;
@@ -53,7 +53,7 @@ int main(void) {
 	}
 	fclose(fp);
 	//test print
-    printf_s("Otazka: %d", GetNth(head, rngQuestion));
+    printf_s("Otazka: %s", GetNth(head, rngQuestion));
 
 	//need free for each node
 	return 0;
