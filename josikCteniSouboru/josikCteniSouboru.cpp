@@ -15,67 +15,9 @@ struct list {
 };
 
 typedef struct list LIST;
-/*typedef struct node {
-	char* val;
-	struct node* next;
-} node_t;
 
-#define CHUNK 1024
-char* ReadFile(const char* filename) {
-	char buffer[CHUNK];
-	char line[128];
-	node_t* x, * head = NULL;
-	FILE* file;
-	size_t nread;
-	FILE* stream;
 
-	errno_t err = fopen_s(&file, filename, "r");
-
-	while (fgets(line, sizeof(line), file)) {
-		head = (node_t*) malloc(sizeof(node_t));
-		head->val = _strdup(line);
-		head->next = NULL;
-
-		if (head == NULL) {
-			current = x = head;
-		}
-		else
-		{
-			current = current->next;
-		}
-	}
-
-	fclose(file);
-
-	return buffer;
-}
-
-void writeList(node_t* head) {
-	node_t* current = head;
-
-	while (current != NULL) {
-		printf("%d\n", current->val);
-		current = current->next;
-	}
-}
-
-int main(void)
-{
-	char* stream = ReadFile("test.txt");
-	char line[128];
-	int rngQuestion = rand() % 4;
-
-	node_t *head, *current = NULL;
-	head = (node_t*) malloc(sizeof(node_t));
-	
-	if (head == NULL) {
-		return 1;
-	}
-
-	return 0;
-}*/
-
-char GetNth(LIST* head, int index)
+char* GetNth(LIST* head, int index)
 {
 	LIST* current = head;
 	int count = 0;
@@ -97,7 +39,8 @@ int main(void) {
 	errno_t err = fopen_s(&fp,"test.txt", "r");
 
 	while (fgets(line, sizeof(line), fp)) {
-		LIST* node = (LIST*) malloc(sizeof(LIST));
+		LIST* node = NULL;
+		node = (LIST*) malloc(sizeof(LIST));
 		node->string = _strdup(line);//note : strdup is not standard function
 		node->next = NULL;
 
